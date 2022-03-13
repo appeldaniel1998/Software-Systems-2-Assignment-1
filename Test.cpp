@@ -14,6 +14,7 @@ TEST_CASE("Invalid Input")
     CHECK_THROWS(mat(5, -1, '$', '%')); //2nd number negative
     CHECK_THROWS(mat(-1, 5, '$', '%')); //1st number negative
     CHECK_THROWS(mat(-1, -3, '$', '%')); //both numbers negative
+    CHECK_THROWS(mat(5, 5, '!', ' ')); //one symbol is a whitespace (unacceptable)
 }
 
 TEST_CASE("Valid Input: Basic Correct Outputs") 
@@ -89,7 +90,7 @@ TEST_CASE("Valid Input: Incorrect Answers")
     CHECK(mat(7, 7, '!', '-') == "!!!!!!!\n" // middle character was not correct
                                  "!-----!\n"
                                  "!-!!!-!\n"
-                                 "!-!!!-!\n"
+                                 "!-!-!-!\n"
                                  "!-!!!-!\n"
                                  "!-----!\n"
                                  "!!!!!!!");
